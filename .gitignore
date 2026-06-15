@@ -29,6 +29,9 @@ results/*
 !results/realdata_smoke/
 results/realdata_smoke/*
 !results/realdata_smoke/.gitkeep
+!results/realmap_lowell/
+results/realmap_lowell/*
+!results/realmap_lowell/.gitkeep
 figures/*
 !figures/.gitkeep
 !figures/paper_v7/

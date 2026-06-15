@@ -205,6 +205,23 @@ python scripts/realdata_smoke_test.py --input data/raw/YOUR_PUBLIC_FILE.fits --s
 See `docs/real_data_smoke_test.md` for details, URL usage, and optional FITS /
 HEALPix inspection.
 
+## Real-map low-ell extraction
+
+An optional script can read a user-selected public HEALPix/FITS map and extract
+low-ell `a_lm` coefficients:
+
+```bash
+python -m pip install -e ".[healpix]"
+python scripts/extract_lowell_alms.py \
+  --input data/raw/YOUR_PUBLIC_MAP.fits \
+  --source-name "manual public source" \
+  --lmax 10
+```
+
+This is not a Planck likelihood or model test. It only writes harmonic
+coefficients, a simple `C_l` diagnostic, and a no-claims manifest. See
+`docs/real_map_lowell_extraction.md`.
+
 ## Limitations
 
 Included now:
