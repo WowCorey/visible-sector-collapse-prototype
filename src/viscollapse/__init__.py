@@ -34,6 +34,14 @@ from .realdata_smoke import (
     inspect_healpix_map,
     smoke_test_failures,
 )
+from .realmap_harmonics import (
+    alm_table,
+    build_realmap_manifest,
+    cl_table_from_alms,
+    extract_lowell_alms,
+    read_healpix_temperature_map,
+    require_healpy,
+)
 
 __version__ = "0.3.0"
 
@@ -67,4 +75,10 @@ __all__ = [
     "inspect_fits_headers",
     "inspect_healpix_map",
     "smoke_test_failures",
+    "require_healpy",
+    "read_healpix_temperature_map",
+    "extract_lowell_alms",
+    "alm_table",
+    "cl_table_from_alms",
+    "build_realmap_manifest",
 ]

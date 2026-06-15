@@ -1,0 +1,27 @@
+# Example notes for real-map low-ell harmonic extraction.
+#
+# This file is documentation only. It contains NO real data and NO default URL
+# that is fetched automatically. The script never reads a URL from here; you must
+# explicitly pass --input or --url on the command line.
+#
+# Scope: real-map low-ell harmonic extraction only; no observational inference.
+# The script does not perform a Planck likelihood, masks/noise/beam/foreground
+# treatment, topology fit, estimator on real data, CLASS/CAMB, COMPACT
+# eigenmodes, or any model comparison.
+
+source_name: "Manually selected public CMB map"
+lmax: 10
+field: 0
+
+# Fill in from the public source's published checksum file, if available.
+# expected_sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+
+# Provide exactly one of these on the command line (not here):
+#   --input data/raw/YOUR_PUBLIC_MAP.fits
+#   --url   "USER_SELECTED_PUBLIC_FILE_URL"
+
+notes:
+  - "Requires the optional healpy extra: pip install -e \".[healpix]\"."
+  - "Verify usage terms, product version, and citation requirements before downloading."
+  - "Downloaded products and real maps must not be committed to the repository."
+  - "Extraction only proves map reading and harmonic coefficients, not a model test."
