@@ -28,7 +28,17 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=7.0"]
+dev = [
+    "pytest>=7.0",
+    "PyYAML>=6.0",
+]
+realdata = [
+    "requests>=2.31",
+    "PyYAML>=6.0",
+]
+camb = [
+    "camb>=1.5",
+]
 
 [project.urls]
 Repository = "https://github.com/WowCorey/visible-sector-collapse-prototype"

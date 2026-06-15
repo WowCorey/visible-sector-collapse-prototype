@@ -22,6 +22,10 @@ from .covariance import (
 )
 from .estimator import quadratic_amplitude_estimator, monte_carlo_recovery
 from .scans import lambda_fpaired_scan, scan_column_name
+from .data_sources import load_public_sources, public_sources_path
+from .download import build_cache_path, download_file
+from .manifests import sha256_file, verify_sha256
+from .realdata_notes import readiness_scope
 
 __all__ = [
     "visible_projector",
@@ -38,4 +42,11 @@ __all__ = [
     "monte_carlo_recovery",
     "lambda_fpaired_scan",
     "scan_column_name",
+    "load_public_sources",
+    "public_sources_path",
+    "build_cache_path",
+    "download_file",
+    "sha256_file",
+    "verify_sha256",
+    "readiness_scope",
 ]

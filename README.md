@@ -10,7 +10,7 @@ Author: Corey Luisi.
 
 > This repository generates synthetic toy covariance matrices only. It does not use real CMB data, Planck maps, CLASS/CAMB, COMPACT eigenmodes, masks, beams, foreground models, or a Planck likelihood. It is a proof-of-method validation of the mathematical machinery described in the associated discussion preprint.
 
-This is not an observational cosmology analysis. It does not derive a Planck constraint, claim a detection, validate a cosmological model with data, or run an external Boltzmann solver. The code is a conservative proof-of-method implementation of the toy numerical checks used in the paper.
+This is not an observational cosmology analysis. It does not derive a Planck measurement, claim a detection, validate a cosmological model with data, or run an external Boltzmann solver. The code is a conservative proof-of-method implementation of the toy numerical checks used in the paper.
 
 ## What This Prototype Does
 
@@ -87,6 +87,43 @@ pytest
 
 The tests verify the projection identities, covariance normalizations, deterministic estimator recovery, and analytic scan values. They do not compare against real data.
 
+## Real-data readiness
+
+The current implemented results are synthetic. Public Planck/LAMBDA data and
+public solvers like CLASS/CAMB may be used in future lawful research extensions
+where source usage terms, versions, checksums, and citation requirements are
+verified and recorded.
+
+This repository now includes:
+
+- `data/public_sources.yml`, a cautious machine-readable public-source manifest;
+- `docs/public_data_sources.md`, `docs/real_data_readiness.md`, and
+  `docs/citation_notes.md`;
+- optional public-data download/cache helpers with SHA-256 verification;
+- optional CAMB and CLASS/classy adapter placeholders for future transfer work.
+
+No real data files are committed. No Planck maps, FITS files, masks, beams,
+noise models, foreground products, solver outputs, or large arrays should be
+committed. No real Planck likelihood has been performed.
+
+The presence of real-data interfaces in this repository does not mean the
+paper's synthetic prototype has been validated against Planck data.
+
+Optional readiness dependencies can be installed with:
+
+```bash
+python -m pip install -e ".[realdata]"
+```
+
+Optional CAMB support is separate:
+
+```bash
+python -m pip install -e ".[camb]"
+```
+
+CLASS/classy installation is environment-specific; follow the current CLASS
+project documentation before using the placeholder adapter.
+
 ## Expected Numerical Checks
 
 Projection check:
@@ -141,7 +178,7 @@ Analytic `lambda_b`--`f_phi_paired` scan using `q_SW = 0.44`:
 | 0.85 | 0.5567 | 0.2783 | 0.0835 |
 | 0.95 | 0.2615 | 0.1307 | 0.0392 |
 
-This scan is an analytic toy sensitivity scan, not a data constraint.
+This scan is an analytic toy sensitivity scan, not a data inference.
 
 ## Prototype Components
 
@@ -178,24 +215,26 @@ Not included:
 
 ```text
 visible-sector-collapse-prototype/
-├── README.md
-├── LICENSE
-├── pyproject.toml
-├── requirements.txt
-├── environment.yml
-├── .gitignore
-├── .github/workflows/tests.yml
-├── src/viscollapse/
-├── scripts/run_prototype.py
-├── tests/
-├── notebooks/
-├── results/.gitkeep
-└── figures/.gitkeep
+|-- README.md
+|-- LICENSE
+|-- pyproject.toml
+|-- requirements.txt
+|-- environment.yml
+|-- .gitignore
+|-- .github/workflows/tests.yml
+|-- src/viscollapse/
+|-- scripts/run_prototype.py
+|-- tests/
+|-- notebooks/
+|-- docs/
+|-- data/
+|-- results/.gitkeep
+`-- figures/.gitkeep
 ```
 
 ## Citation Note
 
-If you use this prototype in discussion, cite the associated discussion preprint by Corey Luisi and describe this repository as a synthetic toy covariance prototype or proof-of-method code. Do not cite it as an observational constraint or data-analysis pipeline.
+If you use this prototype in discussion, cite the associated discussion preprint by Corey Luisi and describe this repository as a synthetic toy covariance prototype or proof-of-method code. Do not cite it as observational analysis or a data-analysis pipeline.
 
 ## License
 
