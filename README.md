@@ -10,7 +10,7 @@ Synthetic low-ell CMB covariance prototype for the discussion preprint:
 
 Author: Corey Luisi.
 
-Paper: discussion draft / preprint, arXiv link pending.
+Paper: discussion draft / preprint, arXiv link.
 
 ## Synthetic-only Disclaimer
 
