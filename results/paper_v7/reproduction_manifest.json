@@ -1,0 +1,110 @@
+{
+  "ell_range": {
+    "ell_max": 10,
+    "ell_min": 2,
+    "n_modes": 117
+  },
+  "expected_outputs": {
+    "lambda_fpaired_scan": {
+      "0.55": {
+        "0.15": 0.164,
+        "0.5": 0.5466,
+        "1.0": 1.0933
+      },
+      "0.65": {
+        "0.15": 0.1427,
+        "0.5": 0.4758,
+        "1.0": 0.9516
+      },
+      "0.75": {
+        "0.15": 0.1164,
+        "0.5": 0.3881,
+        "1.0": 0.7763
+      },
+      "0.85": {
+        "0.15": 0.0835,
+        "0.5": 0.2783,
+        "1.0": 0.5567
+      },
+      "0.95": {
+        "0.15": 0.0392,
+        "0.5": 0.1307,
+        "1.0": 0.2615
+      }
+    },
+    "mc_recovery_117mode": {
+      "0.0": {
+        "Ahat_SE": 0.00447,
+        "Ahat_mean": -0.001235
+      },
+      "0.5": {
+        "Ahat_SE": 0.004485,
+        "Ahat_mean": 0.496998
+      },
+      "1.0": {
+        "Ahat_SE": 0.004516,
+        "Ahat_mean": 0.99966
+      }
+    },
+    "mc_recovery_6x6": {
+      "0.0": {
+        "Ahat_SE": 0.007379,
+        "Ahat_mean": 0.010639
+      },
+      "0.5": {
+        "Ahat_SE": 0.007484,
+        "Ahat_mean": 0.495883
+      },
+      "1.0": {
+        "Ahat_SE": 0.007606,
+        "Ahat_mean": 1.011686
+      }
+    },
+    "one17_mode": {
+      "fisher": 1.0,
+      "n_modes": 117,
+      "sigma_A": 1.0,
+      "trace": 0.0,
+      "trace_square": 2.0
+    },
+    "projection": {
+      "even_projection_fro_norm": 1.0,
+      "odd_projection_fro_norm": 0.0
+    },
+    "six_by_six": {
+      "fisher": 0.0914,
+      "sigma_A": 3.30771,
+      "trace": 0.0,
+      "trace_square": 0.1828
+    }
+  },
+  "monte_carlo_draws": {
+    "one17_mode": 50000,
+    "six_by_six": 200000
+  },
+  "package_version": "0.3.0",
+  "paper_section": "Section 11",
+  "paper_version": "v7.1",
+  "scan_parameters": {
+    "fpaired_values": [
+      1.0,
+      0.5,
+      0.15
+    ],
+    "lambda_b_values": [
+      0.55,
+      0.65,
+      0.75,
+      0.85,
+      0.95
+    ],
+    "q_sw": 0.44
+  },
+  "scope": "synthetic paper-results reproduction; not a real-data analysis",
+  "seeds": {
+    "seed_117": 20260616,
+    "seed_6x6": 20260615
+  },
+  "validation_failures": [],
+  "validation_status": "pass"
+}

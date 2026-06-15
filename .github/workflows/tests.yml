@@ -22,7 +22,15 @@ jobs:
           python -m pip install -e ".[dev]"
 
       - name: Run tests
-        run: pytest
+        run: python -m pytest -q
 
       - name: Run prototype script
         run: python scripts/run_prototype.py
+
+      - name: Upload synthetic reproduction outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-v7-synthetic-outputs
+          path: |
+            results/paper_v7/
+            figures/paper_v7/

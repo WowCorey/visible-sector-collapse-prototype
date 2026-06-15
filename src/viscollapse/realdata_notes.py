@@ -9,7 +9,7 @@ from __future__ import annotations
 
 REALDATA_SCOPE_NOTE = (
     "The presence of real-data interfaces in this repository does not mean the "
-    "paper's synthetic prototype has been validated against Planck data."
+    "paper's synthetic prototype has been compared with or supported by Planck data."
 )
 
 INCLUDED_NOW = (
@@ -27,7 +27,7 @@ NOT_INCLUDED_YET = (
     "physical COMPACT eigenmode implementation",
     "non-orientable spin-2 covariance implementation",
     "Bayesian evidence versus LambdaCDM",
-    "detection claim",
+    "observational claim",
     "observational inference",
 )
 

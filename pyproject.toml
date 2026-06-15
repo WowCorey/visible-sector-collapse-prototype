@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "visible-sector-collapse-prototype"
-version = "0.1.0"
-description = "Synthetic low-ell toy covariance prototype for visible-sector collapse checks."
+version = "0.3.0"
+description = "Synthetic low-ell CMB covariance prototype for visible-sector collapse proof-of-method checks."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Corey Luisi" }]

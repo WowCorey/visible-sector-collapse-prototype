@@ -13,17 +13,17 @@ import math
 import numpy as np
 
 def mode_count(ell_min: int = 2, ell_max: int = 10) -> int:
-    """Return the scalar mode count for inclusive multipoles."""
+    """Return the synthetic scalar mode count for inclusive multipoles."""
     if ell_min < 0 or ell_max < ell_min:
         raise ValueError("require 0 <= ell_min <= ell_max")
     return sum(2 * ell + 1 for ell in range(ell_min, ell_max + 1))
 
 def alpha_deg(lambda_b: float | np.ndarray) -> float | np.ndarray:
-    """Return ``arccos(lambda_b)`` in degrees."""
+    """Return the toy ``arccos(lambda_b)`` angle in degrees."""
     return np.degrees(np.arccos(lambda_b))
 
 def a_topo(lambda_b: float | np.ndarray) -> float | np.ndarray:
-    """Return the analytic topological amplitude factor."""
+    """Return the synthetic analytic topological amplitude factor."""
     return np.sqrt(1.0 - np.asarray(lambda_b, dtype=float) ** 2)
 
 def sw_prefactor(n_modes: int = 117) -> float:

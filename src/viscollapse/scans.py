@@ -22,7 +22,7 @@ def lambda_fpaired_scan(
     q_sw: float = Q_SW_DEFAULT,
     n_modes: int = N_MODES,
 ) -> pd.DataFrame:
-    """Return the analytic toy S/N scan over lambda_b and f_phi_paired."""
+    """Return the synthetic analytic S/N scan over lambda_b and f_phi_paired."""
     rows = []
     for lam in np.asarray(lambda_values, dtype=float):
         base_ceiling = float(sw_ceiling(lam, fpaired=1.0, f_sw=1.0, n_modes=n_modes))
@@ -41,7 +41,7 @@ def lambda_fpaired_scan(
     return pd.DataFrame(rows)
 
 def scan_column_name(fpaired: float, q_sw: float = Q_SW_DEFAULT) -> str:
-    """Return the stable output column name for one scan curve."""
+    """Return the stable output column name for one synthetic scan curve."""
     q_label = f"{q_sw:.2f}".replace(".", "")
     fp_label = str(fpaired).replace(".", "_")
     return f"S_over_N_q{q_label}_fpaired_{fp_label}"

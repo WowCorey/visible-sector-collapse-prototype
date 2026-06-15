@@ -11,25 +11,25 @@ from __future__ import annotations
 import numpy as np
 
 def visible_projector() -> np.ndarray:
-    """Return the 2x2 visible-sector projector ``P_vis``."""
+    """Return the 2x2 synthetic visible-sector projector ``P_vis``."""
     return np.array([[1.0, 0.0], [0.0, 0.0]], dtype=float)
 
 def sector_swap() -> np.ndarray:
-    """Return ``tau_1``, the visible-mirror sector-swap matrix."""
+    """Return ``tau_1``, the toy visible-mirror sector-swap matrix."""
     return np.array([[0.0, 1.0], [1.0, 0.0]], dtype=float)
 
 def visible_odd_projection() -> np.ndarray:
-    """Return ``P_vis tau_1 P_vis``, which vanishes in the visible sector."""
+    """Return the synthetic ``P_vis tau_1 P_vis`` odd projection."""
     pvis = visible_projector()
     return pvis @ sector_swap() @ pvis
 
 def visible_even_projection() -> np.ndarray:
-    """Return ``P_vis I P_vis``, the nonzero even visible projection."""
+    """Return the synthetic ``P_vis I P_vis`` even projection."""
     pvis = visible_projector()
     return pvis @ np.eye(2) @ pvis
 
 def projection_check() -> dict[str, float]:
-    """Return Frobenius norms for the odd and even projection checks."""
+    """Return synthetic Frobenius norms for the odd/even projection checks."""
     odd = visible_odd_projection()
     even = visible_even_projection()
     return {
