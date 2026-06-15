@@ -1,0 +1,23 @@
+# Example notes for the real-data smoke test.
+#
+# This file is documentation only. It contains NO real data and NO default URL
+# that is fetched automatically. The smoke test never reads a URL from here; you
+# must explicitly pass --input or --url on the command line.
+#
+# Scope: real-data smoke test only; no observational inference. The smoke test
+# does not perform a Planck likelihood, topology covariance fit, CLASS/CAMB run,
+# COMPACT eigenmode calculation, or any model validation.
+
+source_name: "Manually downloaded public Planck/LAMBDA file"
+
+# Fill in from the public source's published checksum file, if available.
+# expected_sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+
+# Provide exactly one of these on the command line (not here):
+#   --input data/raw/YOUR_PUBLIC_FILE.fits
+#   --url   "PUBLIC_FILE_URL_CHOSEN_BY_USER"
+
+notes:
+  - "Verify usage terms, product version, and citation requirements before downloading."
+  - "Downloaded products and real data must not be committed to the repository."
+  - "Passing the smoke test only proves file access and metadata reading."

@@ -26,6 +26,9 @@ results/*
 !results/paper_v7/
 !results/paper_v7/*.csv
 !results/paper_v7/*.json
+!results/realdata_smoke/
+results/realdata_smoke/*
+!results/realdata_smoke/.gitkeep
 figures/*
 !figures/.gitkeep
 !figures/paper_v7/
