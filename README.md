@@ -1,128 +1,57 @@
 # visible-sector-collapse-prototype
 
-Synthetic low-(ell) covariance prototype for the discussion preprint:
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Tests](https://github.com/WowCorey/visible-sector-collapse-prototype/actions/workflows/tests.yml/badge.svg)](https://github.com/WowCorey/visible-sector-collapse-prototype/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+Synthetic low-ell CMB covariance prototype for the discussion preprint:
 
 **The Visible-Sector Collapse in Dressed Non-Orientable Cosmology: A Reidemeister-Schreier Obstruction to Thermal Anti-Homologous CMB Signatures, Gravitational Covariance, and Mirror Dark Matter**
 
 Author: Corey Luisi.
 
-## Synthetic-only disclaimer
+Paper: discussion draft / preprint, arXiv link pending.
+
+## Synthetic-only Disclaimer
 
 > This repository generates synthetic toy covariance matrices only. It does not use real CMB data, Planck maps, CLASS/CAMB, COMPACT eigenmodes, masks, beams, foreground models, or a Planck likelihood. It is a proof-of-method validation of the mathematical machinery described in the associated discussion preprint.
 
-This is not an observational cosmology analysis. It does not derive a Planck measurement, claim a detection, validate a cosmological model with data, or run an external Boltzmann solver. The code is a conservative proof-of-method implementation of the toy numerical checks used in the paper.
+This repository is a synthetic paper-results reproduction companion for the
+prototype section of the paper. It is not a real-data analysis, does not run
+external cosmology solvers, and does not claim observational validation.
 
-## What This Prototype Does
+## Reproducing Paper Results
 
-The package `viscollapse` reproduces a small set of synthetic sanity checks:
-
-- visible-sector projection check;
-- 6x6 toy off-diagonal covariance block;
-- 117-mode synthetic low-(ell) normalization check for `2 <= ell <= 10`;
-- bias-subtracted quadratic amplitude estimator;
-- injected-amplitude recovery using deterministic synthetic Gaussian Monte Carlo draws;
-- `lambda_b`--`f_phi_paired` analytic sensitivity scan;
-- analytic Sachs-Wolfe ceiling recovery.
-
-## Installation
-
-Clone the repository and install it in editable mode:
+From a fresh checkout:
 
 ```bash
-git clone https://github.com/WowCorey/visible-sector-collapse-prototype.git
-cd visible-sector-collapse-prototype
-python -m venv .venv
-```
-
-On Windows:
-
-```bash
-.venv\Scripts\activate
-python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
-```
-
-On macOS or Linux:
-
-```bash
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
-```
-
-Conda users can instead start from:
-
-```bash
-conda env create -f environment.yml
-conda activate visible-sector-collapse-prototype
-python -m pip install -e ".[dev]"
-```
-
-## Run the Prototype
-
-```bash
 python scripts/run_prototype.py
+python -m pytest -q
 ```
 
-The script writes regenerated CSV files to `results/` and PNG figures to `figures/`. These generated outputs are ignored by git by default so the repository stays source-focused and reproducible.
+The script reproduces the v7 Section 11 synthetic outputs, validates the
+headline values, writes CSV/JSON files to `results/paper_v7/`, and writes PNG
+figures to `figures/paper_v7/`. It exits with a nonzero status if a required
+paper-value check fails.
 
-Expected generated files include:
+The committed outputs are small synthetic reference outputs. They are included
+so reviewers can compare a fresh run against the paper's Section 11 tables and
+figures.
 
-- `results/projection_check.csv`
-- `results/toy_covariance_6x6.csv`
-- `results/template_summaries.csv`
-- `results/prototype_summary.csv`
-- `results/mc_recovery_6x6.csv`
-- `results/mc_recovery_117mode.csv`
-- `results/lambda_fpaired_scan.csv`
-- `figures/covariance_blocks.png`
-- `figures/sn_scan_lambda_fpaired.png`
-- `figures/injected_recovered.png`
+## Expected Output Files
 
-## Run Tests
-
-```bash
-pytest
+```text
+results/paper_v7/projection_check.csv
+results/paper_v7/covariance_summary.csv
+results/paper_v7/mc_recovery_6x6.csv
+results/paper_v7/mc_recovery_117mode.csv
+results/paper_v7/lambda_fpaired_scan.csv
+results/paper_v7/reproduction_manifest.json
+figures/paper_v7/covariance_blocks.png
+figures/paper_v7/sn_scan_lambda_fpaired.png
+figures/paper_v7/injected_recovered.png
 ```
-
-The tests verify the projection identities, covariance normalizations, deterministic estimator recovery, and analytic scan values. They do not compare against real data.
-
-## Real-data readiness
-
-The current implemented results are synthetic. Public Planck/LAMBDA data and
-public solvers like CLASS/CAMB may be used in future lawful research extensions
-where source usage terms, versions, checksums, and citation requirements are
-verified and recorded.
-
-This repository now includes:
-
-- `data/public_sources.yml`, a cautious machine-readable public-source manifest;
-- `docs/public_data_sources.md`, `docs/real_data_readiness.md`, and
-  `docs/citation_notes.md`;
-- optional public-data download/cache helpers with SHA-256 verification;
-- optional CAMB and CLASS/classy adapter placeholders for future transfer work.
-
-No real data files are committed. No Planck maps, FITS files, masks, beams,
-noise models, foreground products, solver outputs, or large arrays should be
-committed. No real Planck likelihood has been performed.
-
-The presence of real-data interfaces in this repository does not mean the
-paper's synthetic prototype has been validated against Planck data.
-
-Optional readiness dependencies can be installed with:
-
-```bash
-python -m pip install -e ".[realdata]"
-```
-
-Optional CAMB support is separate:
-
-```bash
-python -m pip install -e ".[camb]"
-```
-
-CLASS/classy installation is environment-specific; follow the current CLASS
-project documentation before using the placeholder adapter.
 
 ## Expected Numerical Checks
 
@@ -168,7 +97,7 @@ sigma_A           = 1
 | 0.5 | 0.496998 | 0.004485 |
 | 1.0 | 0.999660 | 0.004516 |
 
-Analytic `lambda_b`--`f_phi_paired` scan using `q_SW = 0.44`:
+Analytic `lambda_b--f_phi_paired` scan using `q_SW = 0.44`:
 
 | lambda_b | S/N, f_phi=1.0 | S/N, f_phi=0.5 | S/N, f_phi=0.15 |
 | -------: | -------------: | -------------: | --------------: |
@@ -178,20 +107,92 @@ Analytic `lambda_b`--`f_phi_paired` scan using `q_SW = 0.44`:
 | 0.85 | 0.5567 | 0.2783 | 0.0835 |
 | 0.95 | 0.2615 | 0.1307 | 0.0392 |
 
-This scan is an analytic toy sensitivity scan, not a data inference.
+## Master Notebook
+
+The master notebook is:
+
+```text
+notebooks/reproduce_paper_results.ipynb
+```
+
+After installing the package, open and run the notebook from top to bottom. It
+walks through the projection check, covariance summaries, quadratic estimator,
+Monte Carlo recovery tables, analytic scan table, and generated figures. The
+notebook is intentionally small and uses the same synthetic helpers as
+`scripts/run_prototype.py`.
+
+## Installation Details
+
+Editable install:
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # macOS/Linux
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+```
+
+Conda:
+
+```bash
+conda env create -f environment.yml
+conda activate visible-sector-collapse-prototype
+python -m pip install -e ".[dev]"
+```
+
+Optional real-data readiness helpers:
+
+```bash
+python -m pip install -e ".[realdata]"
+```
+
+Optional CAMB import boundary:
+
+```bash
+python -m pip install -e ".[camb]"
+```
+
+CLASS/classy installation is environment-specific; follow current CLASS project
+documentation before using the placeholder adapter.
 
 ## Prototype Components
 
-- `viscollapse.projections`: builds the visible-sector projector, sector-swap matrix, and Frobenius-norm projection checks.
-- `viscollapse.covariance`: builds the zero visible thermal block, 6x6 toy off-diagonal block, 117-mode synthetic ring template, and trace/Fisher summaries.
-- `viscollapse.estimator`: implements the bias-subtracted quadratic amplitude estimator for `C0 = I` and deterministic Gaussian recovery draws.
-- `viscollapse.scans`: computes the analytic `lambda_b`--`f_phi_paired` sensitivity table.
-- `viscollapse.figures`: generates the three review figures from synthetic outputs.
-- `scripts/run_prototype.py`: runs the full reproducibility path and writes CSV/PNG artifacts.
+- `viscollapse.paper`: builds, validates, and writes the v7 Section 11
+  synthetic reproduction tables and manifest.
+- `viscollapse.projections`: visible-sector projection checks.
+- `viscollapse.covariance`: toy covariance templates and Fisher summaries.
+- `viscollapse.estimator`: bias-subtracted quadratic estimator and synthetic
+  Gaussian recovery draws.
+- `viscollapse.scans`: analytic `lambda_b--f_phi_paired` scan.
+- `viscollapse.figures`: synthetic PNG figure generation.
+- `scripts/run_prototype.py`: one-command reproduction entry point.
+
+See `docs/api_overview.md` for a concise API map.
+
+## Real-data Readiness Caveat
+
+The current implemented results are synthetic. Public Planck/LAMBDA products
+and public solvers like CLASS/CAMB may be used in future lawful research
+extensions only where source usage terms, versions, checksums, and citation
+requirements are verified and recorded.
+
+The presence of real-data interfaces in this repository does not mean the
+paper's synthetic prototype has been compared with or supported by Planck data.
+
+No real data files are committed. No Planck maps, FITS files, masks, beams,
+noise models, foreground products, solver outputs, or large arrays should be
+committed. No real Planck likelihood has been performed.
+
+See:
+
+- `docs/public_data_sources.md`
+- `docs/real_data_readiness.md`
+- `docs/citation_notes.md`
 
 ## Limitations
 
-Included:
+Included now:
 
 - Reidemeister-Schreier visible-sector projection check
 - visible odd thermal projection equals zero
@@ -200,6 +201,8 @@ Included:
 - 117-mode synthetic normalization check
 - quadratic estimator recovery on toy Gaussian draws
 - lambda_b--f_phi_paired analytic sensitivity scan
+- small committed synthetic CSV/PNG reference outputs
+- optional future real-data readiness scaffolding
 
 Not included:
 
@@ -216,25 +219,26 @@ Not included:
 ```text
 visible-sector-collapse-prototype/
 |-- README.md
+|-- CITATION.cff
 |-- LICENSE
 |-- pyproject.toml
 |-- requirements.txt
 |-- environment.yml
-|-- .gitignore
-|-- .github/workflows/tests.yml
+|-- configs/paper_v7.yml
 |-- src/viscollapse/
 |-- scripts/run_prototype.py
 |-- tests/
 |-- notebooks/
 |-- docs/
 |-- data/
-|-- results/.gitkeep
-`-- figures/.gitkeep
+|-- results/paper_v7/
+`-- figures/paper_v7/
 ```
 
-## Citation Note
+## Citation
 
-If you use this prototype in discussion, cite the associated discussion preprint by Corey Luisi and describe this repository as a synthetic toy covariance prototype or proof-of-method code. Do not cite it as observational analysis or a data-analysis pipeline.
+If you use this synthetic prototype, cite the associated discussion preprint
+and this repository. See `CITATION.cff`.
 
 ## License
 

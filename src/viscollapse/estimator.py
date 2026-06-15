@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 
 def quadratic_amplitude_estimator(samples: np.ndarray, template: np.ndarray) -> np.ndarray:
-    """Return ``Ahat`` for samples drawn from ``C = I + A Delta C``.
+    """Return toy ``Ahat`` for samples drawn from ``C = I + A Delta C``.
 
     The estimator assumes the null covariance ``C0 = I`` and subtracts the
     trace bias, so this is a toy sanity check rather than a CMB likelihood.

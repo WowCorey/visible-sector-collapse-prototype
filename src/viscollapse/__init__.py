@@ -25,9 +25,13 @@ from .scans import lambda_fpaired_scan, scan_column_name
 from .data_sources import load_public_sources, public_sources_path
 from .download import build_cache_path, download_file
 from .manifests import sha256_file, verify_sha256
+from .paper import build_paper_reproduction, validate_paper_reproduction
 from .realdata_notes import readiness_scope
 
+__version__ = "0.3.0"
+
 __all__ = [
+    "__version__",
     "visible_projector",
     "sector_swap",
     "visible_odd_projection",
@@ -48,5 +52,7 @@ __all__ = [
     "download_file",
     "sha256_file",
     "verify_sha256",
+    "build_paper_reproduction",
+    "validate_paper_reproduction",
     "readiness_scope",
 ]

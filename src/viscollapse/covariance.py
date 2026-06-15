@@ -13,13 +13,13 @@ import numpy as np
 from .constants import N_MODES
 
 def thermal_odd_block(size: int = 6) -> np.ndarray:
-    """Return the visible thermal odd block, exactly zero in this prototype."""
+    """Return the synthetic visible thermal odd block, exactly zero here."""
     if size <= 0:
         raise ValueError("size must be positive")
     return np.zeros((size, size), dtype=float)
 
 def toy_covariance_6x6() -> np.ndarray:
-    """Return the 6x6 synthetic off-diagonal covariance template."""
+    """Return the 6x6 synthetic toy off-diagonal covariance template."""
     return np.array([
         [0.00, 0.20, 0.00, 0.00, 0.00, 0.10],
         [0.20, 0.00, 0.15, 0.00, 0.00, 0.00],
@@ -47,7 +47,7 @@ def template_117_mode(n_modes: int = N_MODES) -> np.ndarray:
     return template
 
 def fisher_information(template: np.ndarray, c0_inv: np.ndarray | None = None) -> float:
-    """Return Fisher information for an amplitude multiplying ``template``."""
+    """Return toy Fisher information for an amplitude multiplying ``template``."""
     _validate_square(template, name="template")
     if c0_inv is None:
         c0_inv = np.eye(template.shape[0])
@@ -57,7 +57,7 @@ def fisher_information(template: np.ndarray, c0_inv: np.ndarray | None = None) -
     return float(0.5 * np.trace(c0_inv @ template @ c0_inv @ template))
 
 def template_summary(template: np.ndarray) -> dict[str, float]:
-    """Return trace, trace-square, Fisher, sigma, and eigenvalue diagnostics."""
+    """Return synthetic trace, Fisher, sigma, and eigenvalue diagnostics."""
     _validate_square(template, name="template")
     tr = float(np.trace(template))
     tr2 = float(np.trace(template @ template))

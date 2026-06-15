@@ -23,8 +23,13 @@ Thumbs.db
 # Regenerated prototype outputs
 results/*
 !results/.gitkeep
+!results/paper_v7/
+!results/paper_v7/*.csv
+!results/paper_v7/*.json
 figures/*
 !figures/.gitkeep
+!figures/paper_v7/
+!figures/paper_v7/*.png
 
 # Real-data readiness cache locations; do not commit downloaded products
 data/raw/

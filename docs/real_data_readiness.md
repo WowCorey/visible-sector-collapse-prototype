@@ -5,7 +5,7 @@ checks. The real-data readiness layer prepares optional interfaces for future
 lawful public-data work, but it is not yet a likelihood analysis.
 
 The presence of real-data interfaces in this repository does not mean the
-paper's synthetic prototype has been validated against Planck data.
+paper's synthetic prototype has been compared with or supported by Planck data.
 
 ## Current Scope
 
@@ -26,7 +26,7 @@ Not included yet:
 - physical COMPACT eigenmode implementation;
 - non-orientable spin-2 covariance implementation;
 - Bayesian evidence versus LambdaCDM;
-- detection claim;
+- observational claim;
 - observational inference.
 
 ## Future Pipeline Stages

@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this synthetic prototype, please cite the associated discussion preprint and this repository."
+title: "visible-sector-collapse-prototype"
+authors:
+  - family-names: "Luisi"
+    given-names: "Corey"
+type: software
+version: "0.3.0"
+date-released: "2026-06-15"
+repository-code: "https://github.com/WowCorey/visible-sector-collapse-prototype"
+abstract: "Synthetic low-ell covariance prototype for reproducing the proof-of-method checks associated with the visible-sector collapse discussion preprint. The repository uses synthetic toy covariance matrices only and does not perform real CMB data analysis."
+license: MIT
