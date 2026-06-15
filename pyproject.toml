@@ -32,9 +32,16 @@ dev = [
     "pytest>=7.0",
     "PyYAML>=6.0",
 ]
+fits = [
+    "astropy>=6.0",
+]
+healpix = [
+    "healpy>=1.16",
+]
 realdata = [
     "requests>=2.31",
     "PyYAML>=6.0",
+    "astropy>=6.0",
 ]
 camb = [
     "camb>=1.5",

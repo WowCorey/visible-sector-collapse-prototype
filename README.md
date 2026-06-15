@@ -190,6 +190,21 @@ See:
 - `docs/real_data_readiness.md`
 - `docs/citation_notes.md`
 
+## Real-data smoke test
+
+This repository includes an optional smoke-test command for explicitly selected
+public CMB/FITS-style files. The smoke test verifies file access, checksum, and
+metadata only. It does not perform a Planck likelihood, topology covariance fit,
+or observational validation.
+
+```bash
+python -m pip install -e ".[realdata]"
+python scripts/realdata_smoke_test.py --input data/raw/YOUR_PUBLIC_FILE.fits --source-name "manual public source"
+```
+
+See `docs/real_data_smoke_test.md` for details, URL usage, and optional FITS /
+HEALPix inspection.
+
 ## Limitations
 
 Included now:

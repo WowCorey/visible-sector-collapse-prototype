@@ -27,6 +27,13 @@ from .download import build_cache_path, download_file
 from .manifests import sha256_file, verify_sha256
 from .paper import build_paper_reproduction, validate_paper_reproduction
 from .realdata_notes import readiness_scope
+from .realdata_smoke import (
+    basic_file_metadata,
+    build_smoke_manifest,
+    inspect_fits_headers,
+    inspect_healpix_map,
+    smoke_test_failures,
+)
 
 __version__ = "0.3.0"
 
@@ -55,4 +62,9 @@ __all__ = [
     "build_paper_reproduction",
     "validate_paper_reproduction",
     "readiness_scope",
+    "basic_file_metadata",
+    "build_smoke_manifest",
+    "inspect_fits_headers",
+    "inspect_healpix_map",
+    "smoke_test_failures",
 ]
