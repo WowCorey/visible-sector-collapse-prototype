@@ -25,3 +25,14 @@ results/*
 !results/.gitkeep
 figures/*
 !figures/.gitkeep
+
+# Real-data readiness cache locations; do not commit downloaded products
+data/raw/
+data/cache/
+data/external/
+*.fits
+*.fits.gz
+*.hdf5
+*.h5
+*.npy
+*.npz
